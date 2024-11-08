@@ -1,0 +1,104 @@
+{
+    "settings": {
+        "skybox": "/textures/skybox/1.png",
+        "gravity": 1
+    },
+    "static": [
+    {
+        "type": "Ramp",
+        "location": [1900, 1060],
+        "scale": [1, 1]
+    },
+    {
+        "type": "Ramp",
+        "location": [840, 1060],
+        "scale": [1, 1]
+    },
+    {
+        "type": "WoodenBox",
+        "location": [20, 1060],
+        "scale": [1, 1]
+    },
+    {
+        "type": "WoodenBox",
+        "location": [60, 1060],
+        "scale": [1, 1]
+    },
+    {
+        "type": "WoodenBox",
+        "location": [20, 1020],
+        "scale": [1, 1]
+    },
+    {
+        "type": "WoodenBox",
+        "location": [100, 1060],
+        "scale": [1, 1]
+    },
+    {
+        "type": "WoodenBox",
+        "location": [140, 1060],
+        "scale": [1, 1]
+    },
+    {
+        "type": "MetalBox",
+        "location": [140, 1000],
+        "scale": [1, 2]
+    }
+    ],
+    "background": [
+    {
+        "type": "Planks",
+        "location": [1000, 1060],
+        "scale": [1, 1]
+    },
+    {
+        "type": "Planks",
+        "location": [1040, 1060],
+        "scale": [1, 1]
+    },
+    {
+        "type": "Planks",
+        "location": [1000, 1020],
+        "scale": [1, 1]
+    },
+    {
+        "type": "Planks",
+        "location": [1040, 1020],
+        "scale": [1, 1]
+    }
+    ],
+    "dynamic": [
+        {
+            "type": "Button",
+            "location": [900, 980],
+            "scale": [1, 1],
+            "name": "Button",
+            "special": 1
+        },
+        {
+            "type": "Button",
+            "location": [980, 950],
+            "scale": [1, 1],
+            "name": "Button",
+            "special": 2
+        }
+    ],
+    "dynamic_c": [
+        {
+            "type": "Door",
+            "location": [150, 700],
+            "scale": [1, 1],
+            "name": "Door",
+            "special": 1
+        }
+    ],
+    "character": [
+        {
+            "type": "Player",
+            "location": [125, 680],
+            "scale": [1, 1],
+            "name": "Engi_00",
+            "special": 1
+        }
+        ]
+}
