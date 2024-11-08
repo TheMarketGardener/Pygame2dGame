@@ -39,6 +39,11 @@ def MainRender():
 
     level_handler.level_dynamic.draw(win)
     level_handler.level_dynamic_c.draw(win)
+
+    for i in level_handler.level_character:
+         
+        pg.draw.rect(win, [255, 0, 0, 50], i.rect.copy())
+
     level_handler.level_character.draw(win)
 
 

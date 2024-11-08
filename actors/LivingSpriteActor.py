@@ -18,30 +18,38 @@ class LivingSpriteActor(DynamicSpriteActor.DynamicSpriteActor):
         for p in pg.sprite.spritecollide(self, level_handler.level_static, False):
             if xvel > 0:
                 self.rect.right = p.rect.left
+                self.x = self.rect.center[0]
                 self.xvel = 0
             if xvel < 0:
                 self.rect.left = p.rect.right
+                self.x = self.rect.center[0]
                 self.xvel = 0
             if yvel > 0:
                 self.rect.bottom = p.rect.top
+                self.y = self.rect.center[1]
                 self.falling = False
                 self.yvel = 0
             if yvel < 0:
                 self.rect.top = p.rect.bottom
+                self.y = self.rect.center[1]
                 self.yvel = 0
         for p in pg.sprite.spritecollide(self, level_handler.level_dynamic_c, False):
             if xvel > 0:
                 self.rect.right = p.rect.left
+                self.x = self.rect.center[0]
                 self.xvel = 0
             if xvel < 0:
                 self.rect.left = p.rect.right
+                self.x = self.rect.center[0]
                 self.xvel = 0
             if yvel > 0:
                 self.rect.bottom = p.rect.top
+                self.y = self.rect.center[1]
                 self.falling = False
                 self.yvel = 0
             if yvel < 0:
                 self.rect.top = p.rect.bottom
+                self.y = self.rect.center[1]
                 self.yvel = 0
 
     def tick(self):
@@ -61,16 +69,19 @@ class LivingSpriteActor(DynamicSpriteActor.DynamicSpriteActor):
         self.yvel = max(min(self.yvel, self.max_speed), self.max_speed * -1)
 
         #Collision
-        self.rect.left += self.xvel * game_data_handler.delta_time
+        self.x += self.xvel * game_data_handler.delta_time
+        self.rect.left = self.x
         self.collide(self.xvel, 0)
 
-        self.rect.top += self.yvel * game_data_handler.delta_time
+        self.y += self.yvel * game_data_handler.delta_time
+        self.rect.top = self.y
         self.falling = True
         self.collide(0, self.yvel)
 
         self.rect.clamp_ip(game_data_handler.win.get_rect())
         if self.rect.bottom == game_data_handler.win.get_rect().bottom:
+            self.yvel = 0
             self.falling = False
 
         #Set new position
-        self.x, self.y = self.rect.center
+        self.rect.center = [self.x, self.y]
