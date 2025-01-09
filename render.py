@@ -46,14 +46,14 @@ def MainRender():
 
     level_handler.level_character.draw(win)
 
+    win_width, win_height = display_win.get_size()
 
-    display_win_smallest_size = display_win.get_size()[0] if display_win.get_size()[0] < display_win.get_size()[1] else display_win.get_size()[1]
+    window_aspect_ratio = win_width / win_height
 
-    if display_win.get_size()[0] < display_win.get_size()[1]:
-        scaled_win = pg.transform.scale(win, (display_win_smallest_size, (display_win_smallest_size * game_data_handler.game_world_size_ratio_i)))
+    if window_aspect_ratio > game_data_handler.game_world_size_ratio:
+        scaled_win = pg.transform.scale(win, (int(win_height * game_data_handler.game_world_size_ratio), win_height))
     else:
-        scaled_win = pg.transform.scale(win, ((display_win_smallest_size * game_data_handler.game_world_size_ratio), display_win_smallest_size))
-
+        scaled_win = pg.transform.scale(win, (win_width, int(win_width / game_data_handler.game_world_size_ratio)))
 
     if render_menu:
         pygame_widgets.update(scaled_win)
