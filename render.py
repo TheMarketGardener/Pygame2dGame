@@ -1,7 +1,6 @@
 import level_handler
 import pygame as pg
 import game_data_handler
-import pygame_widgets
 import os
 
 game_data_handler.display_win = pg.display.set_mode((960, 540), pg.RESIZABLE, 8)
@@ -40,9 +39,9 @@ def MainRender():
     level_handler.level_dynamic.draw(win)
     level_handler.level_dynamic_c.draw(win)
 
-    for i in level_handler.level_character:
+    #for i in level_handler.level_character:
          
-        pg.draw.rect(win, [255, 0, 0, 50], i.rect.copy())
+    #    pg.draw.rect(win, [255, 0, 0, 50], i.rect.copy())
 
     level_handler.level_character.draw(win)
 
@@ -55,9 +54,6 @@ def MainRender():
     else:
         scaled_win = pg.transform.scale(win, (win_width, int(win_width / game_data_handler.game_world_size_ratio)))
 
-    if render_menu:
-        pygame_widgets.update(scaled_win)
     display_win.blit(scaled_win, scaled_win.get_rect(center = display_win.get_rect().center))
     
-
     pg.display.flip()

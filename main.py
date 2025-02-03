@@ -5,9 +5,6 @@ import render
 import json
 import time
 import actor_registery
-from pygame_widgets.button import Button
-from pygame_widgets.textbox import TextBox
-import pygame_widgets
 
 display_win = game_data_handler.display_win
 win = game_data_handler.win
@@ -75,37 +72,6 @@ def main():
 
         #Render level
         render.RenderStatic()
-
-    play_button = Button(
-    win,  #Surface
-    100,  #X
-    100,  #Y
-    100,  #W
-    50,  #H
-    text='Play',
-    fontSize=30,
-    margin=20,
-    inactiveColour=(150, 150, 160),
-    hoverColour=(170, 170, 175),
-    pressedColour=(120, 120, 125),
-    radius=0,
-    onClick=lambda: level_load()
-    )
-    exit_button = Button(
-    win,  #Surface
-    100,  #X
-    200,  #Y
-    100,  #W
-    50,  #H
-    text='Exit',
-    fontSize=30,
-    margin=20,
-    inactiveColour=(150, 150, 160),
-    hoverColour=(170, 170, 175),
-    pressedColour=(120, 120, 125),
-    radius=0,
-    onClick=lambda: quit()
-    )
 
     def quit():
         global run
